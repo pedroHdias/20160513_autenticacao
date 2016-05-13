@@ -70,15 +70,39 @@ namespace _20160513_autenticacao.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "A {0} tem de ter pelo menos {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "A Password e a Password Confirmação não são iguais.")]
         public string ConfirmPassword { get; set; }
+
+        ///////////////////////////////////////////////////
+        // Adicionar os campos especificos do utilizador //
+        ///////////////////////////////////////////////////
+
+        
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Nome Próprio")]
+        public string NomeProprio { get; set; }
+    
+        
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Apelido")]
+        public string Apelido { get; set; }
+
+        
+        [Required]
+        [StringLength(9, ErrorMessage = "O {0} tem de ter {2} caracteres.", MinimumLength = 9)]
+        [DataType(DataType.Text)]
+        [Display(Name = "NIF")]
+        public int NIF { get; set; }
+
     }
 
     public class ResetPasswordViewModel
